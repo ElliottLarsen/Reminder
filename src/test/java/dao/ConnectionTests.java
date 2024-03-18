@@ -68,4 +68,10 @@ public class ConnectionTests {
             System.out.println("-> " + list.get(i));
         }
     }
+
+    @Test
+    public void testGetOne() throws Exception {
+        ReminderVO vo = reminderDAO.selectOne(1L);
+        System.out.println(vo);
+    }
 }

@@ -60,4 +60,25 @@ public class ReminderDAO {
         return list;
     }
 
+    public ReminderVO selectOne(long id) throws Exception {
+        String sql = "SELECT * FROM reminder WHERE id = ?";
+
+        @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
+        @Cleanup PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setLong(1, id);
+        @Cleanup ResultSet resultSet = preparedStatement.executeQuery();
+
+        resultSet.next();
+
+        ReminderVO vo = ReminderVO.builder()
+                .id(resultSet.getLong("id"))
+                .reminder(resultSet.getString("reminder"))
+                .createDate(resultSet.getDate("createDate").toLocalDate())
+                .dueDate(resultSet.getDate("dueDate").toLocalDate())
+                .completed(resultSet.getBoolean("completed"))
+                .build();
+
+        return vo;
+    }
+
 }
