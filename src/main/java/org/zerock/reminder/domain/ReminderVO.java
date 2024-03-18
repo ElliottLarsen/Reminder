@@ -13,6 +13,6 @@ public class ReminderVO {
     private Long id;
     private String reminder;
     private LocalDate createDate;
-    private LocalDate duDate;
+    private LocalDate dueDate;
     private boolean completed;
 }
