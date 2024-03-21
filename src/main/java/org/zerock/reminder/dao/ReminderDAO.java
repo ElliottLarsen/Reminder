@@ -6,6 +6,7 @@ import java.util.List;
 
 import lombok.Cleanup;
 import org.zerock.reminder.domain.ReminderVO;
+import org.zerock.reminder.util.ConnectionUtil;
 
 public class ReminderDAO {
 

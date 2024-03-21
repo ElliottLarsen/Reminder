@@ -1,4 +1,4 @@
-package org.zerock.reminder.dao;
+package org.zerock.reminder.util;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

@@ -1,14 +1,14 @@
 package org.zerock.reminder.domain;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Getter
 @Builder
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class ReminderVO {
     private Long id;
     private String reminder;
