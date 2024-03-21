@@ -74,4 +74,17 @@ public class ConnectionTests {
         ReminderVO vo = reminderDAO.selectOne(1L);
         System.out.println(vo);
     }
+
+    @Test
+    public void testUpdateOne() throws Exception {
+        ReminderVO reminderVO = ReminderVO.builder()
+                .id(1L)
+                .reminder("Update Test")
+                .createDate(LocalDate.of(2024, 3, 20))
+                .dueDate(LocalDate.of(2024, 3, 21))
+                .completed(true)
+                .build();
+
+        reminderDAO.updateOne(reminderVO);
+    }
 }

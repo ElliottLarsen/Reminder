@@ -81,4 +81,28 @@ public class ReminderDAO {
         return vo;
     }
 
+    public void deleteOne(long id) throws Exception {
+        String sql = "DELETE FROM reminder WHERE i = ?";
+
+        @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
+        @Cleanup PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setLong(1, id);
+        preparedStatement.executeUpdate();
+    }
+
+    public void updateOne(ReminderVO reminderVO) throws Exception {
+        String sql = "UPDATE reminder SET reminder = ?, createDate = ?, dueDate = ?, completed = ? WHERE id = ?";
+
+        @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
+        @Cleanup PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        preparedStatement.setString(1, reminderVO.getReminder());
+        preparedStatement.setDate(2, Date.valueOf(reminderVO.getCreateDate()));
+        preparedStatement.setDate(3, Date.valueOf(reminderVO.getDueDate()));
+        preparedStatement.setBoolean(4, reminderVO.isCompleted());
+        preparedStatement.setLong(5, reminderVO.getId());
+
+        preparedStatement.executeUpdate();
+    }
+
 }
