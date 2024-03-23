@@ -1,5 +1,6 @@
 package dao;
 
+import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.zerock.reminder.dto.ReminderDTO;
@@ -7,6 +8,7 @@ import org.zerock.reminder.service.ReminderService;
 
 import java.time.LocalDate;
 
+@Log4j2
 public class ServiceTests {
 
     private ReminderService reminderService;
@@ -24,7 +26,8 @@ public class ServiceTests {
                 .dueDate(LocalDate.now())
                 .completed(true)
                 .build();
-
+        log.info("--------------------");
+        log.info(reminderDTO);
         reminderService.register(reminderDTO);
     }
 
