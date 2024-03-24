@@ -18,7 +18,7 @@ import java.time.format.DateTimeFormatter;
 @Log4j2
 public class ReminderCreateController extends HttpServlet {
     private ReminderService reminderService = ReminderService.INSTANCE;
-    private final DateTimeFormatter DATETIMEFORMATTER = DateTimeFormatter.ofPattern("yyyy-mm-dd");
+    private final DateTimeFormatter DATETIMEFORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,8 +30,7 @@ public class ReminderCreateController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ReminderDTO reminderDTO = ReminderDTO.builder()
                 .reminder(req.getParameter("reminder"))
-                .createDate(LocalDate.parse(req.getParameter("createDate"), DATETIMEFORMATTER))
-                .dueDate(LocalDate.parse(req.getParameter("dueDATE"), DATETIMEFORMATTER))
+                .dueDate(LocalDate.parse(req.getParameter("dueDate"), DATETIMEFORMATTER))
                 .build();
 
                 System.out.println("/reminder/create POST....................");
