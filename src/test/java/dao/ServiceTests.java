@@ -19,7 +19,7 @@ public class ServiceTests {
     }
 
     @Test
-    public void testRegister() throws Exception {
+    public void testCreate() throws Exception {
         ReminderDTO reminderDTO = ReminderDTO.builder()
                 .reminder("Service Test Title")
                 .createDate(LocalDate.now())
@@ -28,7 +28,7 @@ public class ServiceTests {
                 .build();
         log.info("--------------------");
         log.info(reminderDTO);
-        reminderService.register(reminderDTO);
+        reminderService.create(reminderDTO);
     }
 
 }
