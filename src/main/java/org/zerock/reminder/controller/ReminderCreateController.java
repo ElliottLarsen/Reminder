@@ -25,4 +25,23 @@ public class ReminderCreateController extends HttpServlet {
         System.out.println("/reminder/create GET....................");
         req.getRequestDispatcher("/WEB-INF/reminder/create.jsp").forward(req, resp);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ReminderDTO reminderDTO = ReminderDTO.builder()
+                .reminder(req.getParameter("reminder"))
+                .createDate(LocalDate.parse(req.getParameter("createDate"), DATETIMEFORMATTER))
+                .dueDate(LocalDate.parse(req.getParameter("dueDATE"), DATETIMEFORMATTER))
+                .build();
+
+                System.out.println("/reminder/create POST....................");
+                log.info(reminderDTO);
+                try {
+                    reminderService.create(reminderDTO);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                resp.sendRedirect("/reminder/list");
+    }
 }
