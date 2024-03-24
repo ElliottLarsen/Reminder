@@ -24,7 +24,7 @@ public enum ReminderService {
 
     public void create(ReminderDTO reminderDTO) throws Exception {
         ReminderVO reminderVO = modelMapper.map(reminderDTO, ReminderVO.class);
-        //System.out.println("reminderVO: " + reminderVO);
+        // System.out.println("reminderVO: " + reminderVO);
         log.info(reminderVO);
         dao.createReminder(reminderVO);
     }

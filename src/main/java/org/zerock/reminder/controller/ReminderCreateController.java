@@ -33,14 +33,14 @@ public class ReminderCreateController extends HttpServlet {
                 .dueDate(LocalDate.parse(req.getParameter("dueDate"), DATETIMEFORMATTER))
                 .build();
 
-                System.out.println("/reminder/create POST....................");
-                log.info(reminderDTO);
-                try {
-                    reminderService.create(reminderDTO);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        System.out.println("/reminder/create POST....................");
+        log.info(reminderDTO);
+        try {
+            reminderService.create(reminderDTO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-                resp.sendRedirect("/reminder/list");
+        resp.sendRedirect("/reminder/list");
     }
 }

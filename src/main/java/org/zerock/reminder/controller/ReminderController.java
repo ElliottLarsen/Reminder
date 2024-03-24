@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "reminderController", value="/reminder/list")
+@WebServlet(name = "reminderController", value = "/reminder/list")
 @Log4j2
 public class ReminderController extends HttpServlet {
 

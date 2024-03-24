@@ -24,8 +24,7 @@ public class ConnectionTests {
         Connection connection = DriverManager.getConnection(
                 "jdbc:mariadb://localhost:3306/Reminder",
                 "root",
-                "root"
-        );
+                "root");
 
         Assertions.assertNotNull(connection);
         connection.close();
