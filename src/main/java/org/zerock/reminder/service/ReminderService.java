@@ -29,6 +29,13 @@ public enum ReminderService {
         dao.createReminder(reminderVO);
     }
 
+    public ReminderDTO get(Long id) throws Exception {
+        log.info("id: " + id);
+        ReminderVO reminderVO = dao.selectOne(id);
+        ReminderDTO reminderDTO = modelMapper.map(reminderVO, ReminderDTO.class);
+        return reminderDTO;
+    }
+
     public List<ReminderDTO> listALL() throws Exception {
         List<ReminderVO> voList = dao.selectAll();
         log.info("voList....................");
