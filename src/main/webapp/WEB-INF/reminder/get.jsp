@@ -24,7 +24,7 @@
     <input type="date" name="dueDate" value="${dto.dueDate}" readonly>
 </div>
 <div>
-    <input type="checkbox" name="completed" ${dto.completed? "checked": ""} readonly>
+    <input type="checkbox" name="completed" ${dto.completed ? "checked" : ""} readonly>
 </div>
 <div>
     <a href="/reminder/update?id=${dto.id}">Update/Remove</a>
