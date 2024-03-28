@@ -48,4 +48,15 @@ public enum ReminderService {
         return dtoList;
     }
 
+    public void remove(Long id) throws Exception {
+        log.info("id: " + id);
+        dao.deleteOne(id);
+    }
+
+    public void update(ReminderDTO reminderDTO) throws Exception {
+        log.info("reminderDTO: " + reminderDTO);
+        ReminderVO reminderVO = modelMapper.map(reminderDTO, ReminderVO.class);
+        dao.updateOne(reminderVO);
+    }
+
 }
