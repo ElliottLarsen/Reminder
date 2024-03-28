@@ -16,16 +16,19 @@
         <input type="text" name="id" value="${dto.id}" readonly>
     </div>
     <div>
-        <input type="text" name="reminder" value="${dto.reminder}" readonly>
+        <input type="text" name="reminder" value="${dto.reminder}">
     </div>
     <div>
         <input type="date" name="createDate" value="${dto.createDate}" readonly>
     </div>
     <div>
-        <input type="date" name="dueDate" value="${dto.duDate}" readonly>
+        <input type="date" name="dueDate" value="${dto.dueDate}">
     </div>
     <div>
         <input type="checkbox" name="completed" ${dto.completed ? "checked" : ""}>
+    </div>
+    <div>
+        <button type="submit">Update</button>
     </div>
 </form>
 <form id="form2" action="/reminder/remove" method="POST">

@@ -32,4 +32,28 @@ public class ReminderUpdateController extends HttpServlet {
             throw new ServletException("Update GET... Error");
         }
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String completedStr = req.getParameter("completed");
+
+        ReminderDTO reminderDTO = ReminderDTO.builder()
+                .id(Long.parseLong(req.getParameter("id")))
+                .reminder(req.getParameter("reminder"))
+                .createDate(LocalDate.parse(req.getParameter("createDate"), DATEFORMATTER))
+                .dueDate(LocalDate.parse(req.getParameter("dueDate"), DATEFORMATTER))
+                .completed(completedStr != null && completedStr.equals("on"))
+                .build();
+
+        System.out.println("/reminder/update POST...");
+        System.out.println(reminderDTO);
+
+        try {
+            reminderService.update(reminderDTO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        resp.sendRedirect("/reminder/list");
+    }
 }
