@@ -94,7 +94,7 @@ public class ReminderDAO {
     }
 
     public void deleteOne(long id) throws Exception {
-        String sql = "DELETE FROM reminder WHERE i = ?";
+        String sql = "DELETE FROM reminder WHERE id = ?";
 
         @Cleanup
         Connection connection = ConnectionUtil.INSTANCE.getConnection();
